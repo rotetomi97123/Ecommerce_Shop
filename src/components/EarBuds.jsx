@@ -1,0 +1,81 @@
+import React from 'react'
+import styled from "styled-components"
+import { Splide, SplideSlide} from '@splidejs/react-splide'
+import '@splidejs/react-splide/css';
+import { slider } from './data'
+import { Link } from 'react-router-dom';
+import queryString from 'query-string';
+
+
+
+const EarBuds = () => {
+
+    return (
+        <div>
+        <Wrapper>
+          <h2>Find Your Ultimate Earbuds</h2>
+          <Splide options={{
+           perPage:3,
+           arrows: false,
+           pagination: false,
+           drag: 'free',
+           gap: '5rem',
+          }}>
+             {slider.map((item) => {
+               return(
+                 <SplideSlide id={item.id} key={item.id}>
+                  <Link   
+                    to={{ 
+                      pathname: '/ItemInfo',
+                      search:   queryString.stringify({ myProp: JSON.stringify(item)}),
+                    }}>
+                        <Card>
+                      <img src={item.image} alt={item.name} />
+                    </Card>
+                  </Link>
+                 </SplideSlide>
+               )
+              })};
+           </Splide>
+         </Wrapper>
+   </div>
+  )
+}
+
+const Wrapper = styled.div`
+font-family: 'Bebas Neue', cursive;
+h2{
+  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+`
+const Card = styled.div`
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: #d2d2d2;
+  min-height: 30rem;
+  boder-radius: 2rem;
+  overflow:hidden;
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease-out;
+
+  img{
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    position: absolute;
+    left:0;
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease;
+    opacity: 90%;
+  }
+`;
+
+
+export default EarBuds

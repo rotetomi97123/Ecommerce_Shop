@@ -7,7 +7,24 @@ export const hero = [
         image: "https://i.ibb.co/ZhDgYkJ/heroIMG.png",
         color: "#00FF00",
         price: 79.99,
-        quantity: 1
+        quantity: 1,
+        specification: `Dimensions:
+
+        Earbuds: 30.9 x 21.8 x 24.0 mm
+        Charging case: 60.6 x 45.2 x 21.7 mm
+        Weight:
+        
+        Earbuds: 5.4 g each
+        Charging case with earbuds: 45.6 g
+        Battery life:
+        
+        Up to 4.5 hours with ANC on
+        Up to 5 hours with ANC off (earbuds)
+        Up to 24 hours with charging case
+        Charging time:
+        
+        5 minutes for up to 1 hour of battery life
+        Bluetooth version: 5.0`
     },
     {
         id: 1,
@@ -16,7 +33,28 @@ export const hero = [
         image: "https://i.ibb.co/0t0Pdv1/hypex2.png",
         color: "red",
         price: 99.99,
-        quantity: 1
+        quantity: 1,
+        specification: `Brand: HyperX
+        Model: Cloud II
+        Product type: Wired gaming headset
+        
+        Audio:
+        
+        Virtual 7.1 surround sound
+        Frequency response: 15Hz-25,000Hz
+        Impedance: 60 ohms
+        Sound pressure level: 98±3dB
+        Total harmonic distortion: < 2%
+        Driver diameter: 53mm
+        Microphone:
+        
+        Type: Detachable, noise-cancelling condenser
+        Polar pattern: Cardioid (Unidirectional)
+        Frequency response: 50Hz-18,000Hz
+        Compatibility:
+        
+        PC, Mac, PS4, Xbox One, Nintendo Switch, and mobile devices.`
+
     },
     {
         id: 2,
@@ -25,7 +63,29 @@ export const hero = [
         image: "https://i.ibb.co/FD7RDKj/3.png",
         color: "#4FC3F7",
         price: 149.99,
-        quantity: 1
+        quantity: 1,
+        specification: `
+            Brand: Logitech
+            Model: G533
+            Product type: Wireless gaming headset
+
+            Audio:
+
+            DTS Headphone:X 7.1 surround sound
+            Frequency response: 20 Hz-20 kHz
+            Impedance: 32 Ohms
+            Sensitivity: 107 dB SPL/mW
+            Microphone:
+
+            Type: Cardioid (Unidirectional)
+            Frequency response: 100 Hz–20 kHz
+            Sensitivity: -47 dBV/Pa re: 0 dB
+            Connectivity:
+
+            Wireless type: 2.4 GHz RF wireless
+            Wireless range: 15 meters (50 feet)
+`
+
     },
     {
         id: 3,
@@ -34,7 +94,28 @@ export const hero = [
         image: "https://i.ibb.co/zSMXt7J/6.png",
         color: "#FFA500",
         price: 99.99,
-        quantity: 1
+        quantity: 1,
+        specification: `Brand: SteelSeries
+        Model: Arctis 5
+        Product type: Wired gaming headset
+        
+        Audio:
+        
+        DTS Headphone:X 7.1 surround sound
+        Frequency response: 20Hz-22,000Hz
+        Impedance: 32 Ohm
+        Sound pressure level: 98dB
+        Total harmonic distortion: < 3%
+        Driver diameter: 40mm
+        Microphone:
+        
+        Type: Retractable, bidirectional noise-cancelling
+        Polar pattern: Bidirectional (Noise-Cancelling)
+        Frequency response: 100Hz-10,000Hz
+        Compatibility:
+        
+        PC, Mac, PlayStation 4, Xbox One, Nintendo Switch, VR and mobile devices.`
+
     }
 ]
 
@@ -155,6 +236,82 @@ export const slider = [
         Bluetooth version: 5.0`
     },
 ]
-
-
+export const speakers = [
+    {
+        id: 0,
+        name: "Bose SoundLink Mini II",
+        text: "",
+        image: "https://www.dimprice.co.uk/image/cache/catalog/Bose/bose-soundlink-mini-ii-special-edition-triple-black-1-1200x1200.png",
+        price: 179.99,
+        quantity: 1,
+        specification: ``
+    },
+    {
+        id: 1,
+        name: "JBL Charge 4 ",
+        text: "",
+        image: "https://i5.walmartimages.com/asr/35d25172-4c9e-4427-bfaf-2e684e70d5a4_1.1f3b9d6706634556742ca65c979556b3.png",
+        price: 179.95,
+        quantity: 1,
+        specification: ``
+    },
+    {
+        id: 2,
+        name: "Sonos One SL",
+        text: "",
+        image: "https://norlux.com/en/wp-content/uploads/sites/3/2022/03/Sonos-One-SL-black-front-top.png",
+        price: 179.00,
+        quantity: 1,
+        specification: ``
+    },
+    {
+        id: 3,
+        name: "Ultimate Ears BOOM 3",
+        text: "",
+        image: "https://www.ultimateears.com/content/dam/ue/products/wireless-speakers/boom-3/night-black/ue-boom3-night-black-front.png",
+        price: 149.99,
+        quantity: 1,
+        specification: ``
+    },  {
+        id: 4,
+        name: "Marshall Acton II",
+        text: "",
+        image: "https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dw898eb557/images/marshall/speakers/acton-ii-bt/black/large/pos-marshall-acton-ii-bt-black-01.png",
+        price: 199.99,
+        quantity: 1,
+        specification: ``
+    },  {
+        id: 5,
+        name: "Harman Kardon Onyx Studio 6",
+        text: "",
+        image: "https://htchub.co.ug/wp-content/uploads/2019/04/HK_ONYX_STUDIO_5_CLOUD_GRAY_HERO_001_x2-1605x1605px.png",
+        price: 199.95,
+        quantity: 1,
+        specification: ``
+    },  {
+        id: 6,
+        name: "Bose Home Speaker 300",
+        text: "",
+        image: "https://assets.bose.com/content/dam/cloudassets/Bose_DAM/Web/consumer_electronics/global/products/speakers/bose_home_speaker_300/product_silo_images/bose_home_speaker_300_black_EC_hero.PNG/_jcr_content/renditions/cq5dam.web.1280.1280.png",
+        price: 199.00,
+        quantity: 1,
+        specification: ``
+    },  {
+        id: 7,
+        name: "Sony SRS-XB23",
+        text: "",
+        image: "https://cdn.shopify.com/s/files/1/0663/2947/7353/products/SonySpeaker1.webp?v=1678495420",
+        price: 99.99,
+        quantity: 1,
+        specification: ``
+    },  {
+        id: 8,
+        name: "Anker Soundcore Flare 2",
+        text: "",
+        image: "https://cdn.salla.sa/BvdpA/fbQDT8IUz1tiCqEj2xVEXuCevTZRPQ1UQ8H59ffW.png",
+        price: 69.99,
+        quantity: 1,
+        specification: ``
+    },
+]
 export default hero;

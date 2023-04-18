@@ -30,16 +30,15 @@ const Navbar = () => {
                     <SectionWrapper>
                         <SectionText>Product</SectionText>
                         <SectionText>Quantity</SectionText>
-                        <SectionText>Price</SectionText>
-                        <SectionText></SectionText>
+                        <SectionLast>Price</SectionLast>
                     </SectionWrapper>
                     <CartWrapper>
                     {cartItems.map((item, index) => (
                         <Card key={index}>
-                            <div>
+                            <CardImageWrap>
                                 <img src={item.image} alt={item.name} />
                                 <p>{item.name}</p>
-                            </div>
+                            </CardImageWrap>
                         <Quantity>
                             <button onClick={() => dispatch(handleDecrement(item))}>-</button>
                                 <p>{item.quantity}</p>
@@ -49,15 +48,15 @@ const Navbar = () => {
                         <Remove onClick={() => dispatch(removeItemFromCart(index))}>Remove</Remove>
                      </Card>
                     ))}
-                        <SectionWrapper>
-                            <p></p>
-                            <ClearButton onClick={()=> dispatch(clearCart())}>Clear Cart</ClearButton>
-                            </SectionWrapper>
+                            <SectionCheckOut>
+                                <p></p>
+                                <ClearButton onClick={()=> dispatch(clearCart())}>Clear Cart</ClearButton>
+                            </SectionCheckOut>
 
-                            <SectionWrapper>
+                            <SectionCheckOut>
                             <p>Total Price: ${totalPrice}</p>
                             <OrderButton>Check Out</OrderButton>
-                        </SectionWrapper>
+                            </SectionCheckOut>
                     </CartWrapper>
                     
                     <Exit onClick={() => dispatch(hideSection())}><AiOutlineCloseCircle /></Exit>
@@ -95,8 +94,26 @@ const LogoDiv = styled.div`
     }
 `
 const SectionText = styled.div`
-    margin-left: 2rem;
     font-size: 1.2rem;
+    text-align: center;
+`
+const SectionLast = styled.div`
+    font-size: 1.2rem;
+    text-align: center;
+`
+const SectionCheckOut = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p{
+        font-size: 1.5rem;
+    }
+    @media (max-width: 550px){
+        width: 80%;
+
+    }
+    
 `
 const ShopLogo = styled(AiOutlineShopping)`
     font-size: 3rem;
@@ -125,6 +142,9 @@ const LogoWrap = styled.div`
         width: 100%;
         height: 100%;
     }
+    @media (max-width: 400px){
+        height: 200px;
+    }
 `
 const NavText = styled.div`
     width: 100%;
@@ -140,14 +160,9 @@ const NavText = styled.div`
     }
 `
 const SectionWrapper = styled.div`
-    width: 100%;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top:1rem;
-    p{
-        font-size: 1.5rem;
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 `
 const CartWrapper = styled.div`
     width: 100%;
@@ -194,9 +209,8 @@ const Quantity = styled.div`
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    padding: 2px;
+    padding: 1px;
     font-size: 18px;
-    margin: 0 10px;
     border-radius: 4px;
     button {
         border: none;
@@ -216,6 +230,10 @@ const Card = styled.div`
     p{
         font-size: 1.4rem;
     }
+    @media (max-width: 550px){
+        flex-direction: column;
+    }
+    
 `
 const Remove = styled.button`
     border-radius: 1rem;
@@ -266,5 +284,10 @@ const ClearButton = styled.button`
         opacity: 80%;
         transition: 0.3s ease;
     }
+`
+const CardImageWrap = styled.div`
+    width: 280px;
+    display: flex;
+    align-items: center;
 `
 export default Navbar

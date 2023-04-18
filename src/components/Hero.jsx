@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import hero from './data'
 import { useDispatch } from 'react-redux'
 import {addItemToCart} from '../actions'
+import queryString from 'query-string';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
 
@@ -23,7 +25,13 @@ const Hero = () => {
             <Name>{hero[index].name}</Name>
                 <Title>HEADPHONE</Title>
                 <FlexDiv>
-                    <Btn onClick={()=>dispatch(addItemToCart(hero[index]))}>Add to cart</Btn>
+                    <Link   
+                        to={{ 
+                        pathname: '/ItemInfo',
+                        search:   queryString.stringify({ myProp: JSON.stringify(hero[index])}),
+                        }}>
+                            <Btn color={hero[index].color}>View Details</Btn>
+                    </Link>
                     <TextWrapper>
                         <h2>Description</h2>
                         <p>{hero[index].text}</p>
@@ -72,6 +80,9 @@ const Wrapper = styled.div`
     @media (max-width: 700px){
         padding: 0rem 1rem;
     }
+    @media (max-width: 400px){
+        height: 100%;
+    }
 `
 const Title = styled.h1`
     letter-spacing: 7px;
@@ -100,7 +111,7 @@ const Title = styled.h1`
     }
 `
 const Btn = styled.button`
-    background-color:#FF3131;
+    background-color:${props => props.color};;
     font-size: 1.5rem;
     padding: 0rem 1rem;
     border: none;

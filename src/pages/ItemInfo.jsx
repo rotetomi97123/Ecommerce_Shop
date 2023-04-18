@@ -29,7 +29,9 @@ const ItemInfo = () => {
             <h1>{parsedMyProp.name}</h1>
             <p>{parsedMyProp.text}</p>
             <h5>${parsedMyProp.price}</h5>
-            <Order onClick={() => dispatch(addItemToCart(parsedMyProp))}>Add to cart</Order>
+            <span>
+              <Order onClick={() => dispatch(addItemToCart(parsedMyProp))}>Add to cart</Order>
+            </span>
             <Specification>
                 <div>Specification</div>
                 <Symbol onClick={() => (setToggle(prev => !prev))} toggle={toggle}><AiOutlineDown /></Symbol>
@@ -55,6 +57,9 @@ const ItemInfoWrapper = styled.div`
     padding: 0 2rem;
 
   }
+  @media (max-width: 400px){
+    padding: 0 1rem;
+  }
 `
 const Wrapper = styled.div`
     width: 100%;
@@ -64,17 +69,8 @@ const Wrapper = styled.div`
     align-items:center;
     flex-direction: column;
     font-family: 'Bebas Neue', cursive;
-        @media (max-width: 1200px){
-            padding: 1rem 1rem;
-        }
-        @media (max-width: 700px){
-            height: 90vh;
-        }
-        @media (max-width: 550px){
-            height: 80vh;
-        }
-        @media (max-width: 400px){
-            height: 90vh;
+        @media (max-width: 1000px){
+            height: 100%;
         }
 `
 const Box = styled.div`
@@ -89,11 +85,25 @@ const Box = styled.div`
     img {
         width: 800px;
     }
+    @media (max-width: 1000px){
+      flex-direction: column;
+      height: 95%;
+    }
+    @media (max-width: 500px){
+      padding-top: 4rem;
+    }
 `
 const LeftWrap = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    height:100%;
     img{
-        width: 700px;
-        height: 100%;
+      width:700px;
+      @media (max-width: 1000px){
+        width: clamp(300px, 50%, 650px);
+        height: auto;
+      }
     }
 `
 const RightWrap = styled.div`
@@ -103,14 +113,39 @@ const RightWrap = styled.div`
     justify-content: center;
   h1{
     font-size: 5rem;
+    line-height: 1.5;
+    @media (max-width: 1000px){
+      text-align:center;
+      font-size: 2.5rem;
+    }
   }
   p{
-    width: 500px;
+    max-width: 500px;
     font-size: 1.2rem;
+    @media (max-width: 1000px){
+      text-align:center;
+      font-size: 1rem;
+    }
   }
   h5{
+    margin:0;
+    padding: 1rem 0;;
     font-size: 3rem;
     line-height:2px;
+    @media (max-width: 1000px){
+      text-align: center;
+    }
+  @media (max-width: 1000px){
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  span{
+    @media (max-width: 1000px){
+      display:flex;
+      justify-content:center;
+      align-items: center;
+    }
   }
 `
 const Order = styled.button`
@@ -130,6 +165,10 @@ const Order = styled.button`
         opacity: 80%;
         transition: 0.3s ease;
     }
+    @media (max-width: 400px){
+      margin-left: 1rem;
+    }
+ 
 `
 const Back = styled.button`
     position: absolute;
@@ -155,17 +194,27 @@ const Back = styled.button`
 const Specification = styled.div`
   padding: 0rem 0;
   display: flex;
-  width: 100%;
+  max-width: 450px;
   height: 50px;
   justify-content: space-between;
   align-items: center;
   font-size: 2rem;
+  @media (max-width: 400px){
+    margin-left: 1rem;
+    width:80%;
+  }
 `
 const SpecificationDetails = styled.div`
-  width: 100%;
+  max-width: 450px;
   line-height: 17px;
   height: 0px;;
   font-size: 1.2rem;
+  @media (max-width: 1000px){
+    padding-bottom: 10rem;
+    width: 95%;
+    text-align: center;
+  }
+
 `
 const Symbol = styled.div`
     display: flex;

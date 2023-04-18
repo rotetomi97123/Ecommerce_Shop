@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { Splide, SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css';
@@ -7,15 +7,34 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 
-
 const EarBuds = () => {
+
+
+// Splide
+  const [perPage, setPerPage] = useState(3);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 800) {
+        setPerPage(1);
+      } else {
+        setPerPage(3);
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+// Splide
 
     return (
         <div>
         <Wrapper>
           <h2>Find Your Ultimate Earbuds</h2>
           <Splide options={{
-           perPage:3,
+           perPage,
            arrows: false,
            pagination: false,
            drag: 'free',

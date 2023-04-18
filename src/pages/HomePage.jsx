@@ -4,12 +4,17 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Hero from '../components/hero'
 import EarBuds from '../components/EarBuds'
+import Discount from '../components/discount'
+import Speaker from '../components/Speaker'
+
 const HomePage = () => {
   return (
     <HomeWrapper>
         <Navbar />
         <Hero />
         <EarBuds />
+        <Discount />
+        <Speaker />
     </HomeWrapper>
   )
 }

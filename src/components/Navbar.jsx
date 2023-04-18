@@ -137,7 +137,7 @@ const Exit = styled.button`
 const LogoWrap = styled.div`
     width: 250px;
     height: 250px;
-    padding: 1rem 1rem;
+    padding-top: 2rem;
     img{
         width: 100%;
         height: 100%;

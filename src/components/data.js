@@ -34,12 +34,10 @@ export const hero = [
         color: "red",
         price: 99.99,
         quantity: 1,
-        specification: `Brand: HyperX
+        specification: `Brand: HyperX 
         Model: Cloud II
-        Product type: Wired gaming headset
-        
+        Product type: Wired gaming headset 
         Audio:
-        
         Virtual 7.1 surround sound
         Frequency response: 15Hz-25,000Hz
         Impedance: 60 ohms
@@ -47,12 +45,11 @@ export const hero = [
         Total harmonic distortion: < 2%
         Driver diameter: 53mm
         Microphone:
-        
-        Type: Detachable, noise-cancelling condenser
+        Type:
+        Detachable, noise-cancelling condenser
         Polar pattern: Cardioid (Unidirectional)
         Frequency response: 50Hz-18,000Hz
         Compatibility:
-        
         PC, Mac, PS4, Xbox One, Nintendo Switch, and mobile devices.`
 
     },

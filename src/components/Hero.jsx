@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import {addItemToCart} from '../actions'
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
-
+import herowrap from '../assets/herowrap.png'
 const Hero = () => {
 
     const dispatch = useDispatch();
@@ -18,31 +18,77 @@ const Hero = () => {
         }, 5000);
         return () => clearInterval(intervalId);
       }, [hero.length]);
+//--------------
+      const [countdown, setCountdown] = useState(null);
+
+      useEffect(() => {
+        const endTime = new Date('2023-04-30T23:59:59Z').getTime();
+        const interval = setInterval(() => {
+          const currentTime = new Date().getTime();
+          const remainingTime = endTime - currentTime;
+    
+          const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+    
+          setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+    
+          if (remainingTime < 0) {
+            clearInterval(interval);
+            setCountdown('Deal has expired');
+          }
+        }, 1000);
+    
+        return () => clearInterval(interval);
+      }, []);
+//--------------
 
   return (
     <HeroWrapper>
         <Wrapper>
-            <Name>{hero[index].name}</Name>
-                <Title>HEADPHONE</Title>
+            <Title>Limited-Time Offers</Title>
+            <PriceWrap>
+                <Name>{hero[index].name}</Name>
+                <CircleBackground>
+                    <Price>${hero[index].price}</Price>
+                </CircleBackground>
+            </PriceWrap>
                 <FlexDiv>
                     <Link   
                         to={{ 
                         pathname: '/ItemInfo',
                         search:   queryString.stringify({ myProp: JSON.stringify(hero[index])}),
-                        }}>
-                            <Btn color={hero[index].color}>View Details</Btn>
+                    }}>
+                        <Btn>View Details</Btn>
                     </Link>
                     <TextWrapper>
                         <h2>Description</h2>
                         <p>{hero[index].text}</p>
                     </TextWrapper>
                 </FlexDiv>
+                    <CountdownContainer>
+                        {countdown ? `Deal ends in: ${countdown}` : 'Loading countdown...'}
+                    </CountdownContainer>
                 <HeroImg src={hero[index].image} alt="heroimg" />
         </Wrapper>
     </HeroWrapper>
   )
 }
-
+const CountdownContainer = styled.div`
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 3rem;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2A2A2A;
+`;
 const HeroWrapper = styled.div`
 margin-top:1.5rem;
 width: 100%;
@@ -65,8 +111,10 @@ flex-direction: column;
 `
 const Wrapper = styled.div`
     width:100%;
-    height:100%;
-    background-color:#d2d2d2;
+    height:80vh;
+    background-image: url('https://i.ibb.co/xmq0Vrw/herowrap.png');
+    background-size: cover;
+    background-position: center;
     border-radius: 1rem;
     padding: 0rem 2rem;
     position: relative;
@@ -85,10 +133,10 @@ const Wrapper = styled.div`
     }
 `
 const Title = styled.h1`
-    letter-spacing: 7px;
-    line-height: 1px;
-    font-size: 18rem;
-    color: white;
+    letter-spacing: 2px;
+    line-height: 50px;
+    font-size: 8rem;
+    color: #2A2A2A;
     @media (max-width: 1200px){
         font-size: 12rem;
     }
@@ -102,7 +150,24 @@ const Title = styled.h1`
         font-size: 4rem;
     }
     `
+const CircleBackground = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFDE59;
+  border-radius: 0 2rem 2rem 0;
+  width: 125px;
+  height: 124px;
+  text-align: center;
+`;
     const Name = styled.p`
+    height: 100px;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    padding-left:1rem;
+    padding-right: 1rem;
+    border: 4px solid #FFDE59;
+    border-radius: 2rem 0 0 2rem;
     font-size: 4rem;
     color: #2A2A2A;
     letter-spacing: 2px;
@@ -110,12 +175,21 @@ const Title = styled.h1`
         font-size: 2rem;
     }
 `
+const PriceWrap = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+const Price = styled.p`
+    font-size: 3rem;
+    color:  #2A2A2A;
+`
 const Btn = styled.button`
-    background-color:${props => props.color};;
+    background-color:#FFDE59;
     font-size: 1.5rem;
     padding: 0rem 1rem;
     border: none;
-    color:white;
+    color:black;
     width: 350px;
     height: 50px;
     border-radius: 1rem;
@@ -162,7 +236,7 @@ const TextWrapper = styled.div`
   p{
     width:400px;
     text-align:right;
-    margin-right:3rem;
+    margin-right:1rem;
     @media (max-width: 1200px){
         margin-right:1rem;
         width:100%;
@@ -179,7 +253,7 @@ const HeroImg = styled.img`
     position: absolute;
     width: 600px;
     top: 50%;
-    left: 65%;
+    left: 70%;
     transform: translate(-50%, -50%);
     @media (max-width: 1200px){
         width: 400px;

@@ -16,12 +16,14 @@ const ItemInfo = () => {
   const location = useLocation();
   const { myProp} = queryString.parse(location.search);
   const parsedMyProp = JSON.parse(myProp);
+  
+ 
 
   return (
     <ItemInfoWrapper>
     <Navbar />
     <Wrapper>
-        <Box>
+        <Box toggle={toggle}>
         <LeftWrap>
             <img src={parsedMyProp.image} alt={parsedMyProp.name} />
         </LeftWrap>
@@ -192,7 +194,6 @@ const Back = styled.button`
     }
 `
 const Specification = styled.div`
-  padding: 0rem 0;
   display: flex;
   max-width: 450px;
   height: 50px;

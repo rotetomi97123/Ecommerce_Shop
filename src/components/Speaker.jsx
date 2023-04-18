@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styled from "styled-components"
 import { Splide, SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css';
-import { slider } from './data'
+import { speakers } from './data'
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 
-const EarBuds = () => {
+const Speaker = () => {
 
 
 // Splide
@@ -32,7 +32,7 @@ const EarBuds = () => {
     return (
         <div>
         <Wrapper>
-          <h2>Find Your Ultimate Earbuds</h2>
+          <h2>Best selling speakers</h2>
           <Splide options={{
            perPage,
            arrows: false,
@@ -40,7 +40,7 @@ const EarBuds = () => {
            drag: 'free',
            gap: '5rem',
           }}>
-             {slider.map((item) => {
+             {speakers.map((item) => {
                return(
                  <SplideSlide id={item.id} key={item.id}>
                   <Link   
@@ -97,4 +97,4 @@ const Card = styled.div`
 `;
 
 
-export default EarBuds
+export default Speaker;

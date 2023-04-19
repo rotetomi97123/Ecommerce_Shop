@@ -32,7 +32,7 @@ const EarBuds = () => {
     return (
         <div>
         <Wrapper>
-          <h2>Find Your Ultimate Earbuds</h2>
+          <h2>BESTSELLER EARBUDS</h2>
           <Splide options={{
            perPage,
            arrows: false,
@@ -62,17 +62,16 @@ const EarBuds = () => {
 }
 
 const Wrapper = styled.div`
-font-family: 'Bebas Neue', cursive;
 h2{
   text-align: center;
-  font-size: 5rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 `
 const Card = styled.div`
   cursor: pointer;
   border-radius: 1rem;
-  background-color: #DF3E3C;
+  background-color: #D2d2d2;
   min-height: 30rem;
   boder-radius: 2rem;
   overflow:hidden;

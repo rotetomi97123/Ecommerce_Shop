@@ -20,8 +20,8 @@ const HomePage = () => {
 }
 
 const HomeWrapper = styled.div`
+  font-family: 'Fredoka One', cursive;
   padding: 0 8rem;
-  font-family: 'Bebas Neue', cursive;
   @media (max-width: 1400px){
     padding: 0 4rem;
 

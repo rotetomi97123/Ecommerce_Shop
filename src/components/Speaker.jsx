@@ -62,7 +62,6 @@ const Speaker = () => {
 }
 
 const Wrapper = styled.div`
-font-family: 'Bebas Neue', cursive;
 h2{
   text-align: center;
   font-size: 5rem;
@@ -72,7 +71,7 @@ h2{
 const Card = styled.div`
   cursor: pointer;
   border-radius: 1rem;
-  background-color: #DF3E3C;
+  background-color: #D2d2d2;
   min-height: 30rem;
   boder-radius: 2rem;
   overflow:hidden;

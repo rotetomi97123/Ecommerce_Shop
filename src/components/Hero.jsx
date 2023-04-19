@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import hero from './data'
+import {hero,slider} from './data'
 import { useDispatch } from 'react-redux'
 import {addItemToCart} from '../actions'
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
 import herowrap from '../assets/herowrap.png'
+
+
 const Hero = () => {
 
     const dispatch = useDispatch();
@@ -13,11 +15,11 @@ const Hero = () => {
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-        setIndex(index => (index + 1)  % hero.length);
+        setIndex(index => (index + 1)  % slider.length);
 
         }, 5000);
         return () => clearInterval(intervalId);
-      }, [hero.length]);
+      }, [slider.length]);
 //--------------
       const [countdown, setCountdown] = useState(null);
 
@@ -51,44 +53,35 @@ const Hero = () => {
   return (
     <HeroWrapper>
         <Wrapper>
-            <Title>Limited-Time Offers</Title>
-            <PriceWrap>
-                <Name>{hero[index].name}</Name>
-                <CircleBackground>
-                    <Price>${hero[index].price}</Price>
-                </CircleBackground>
-            </PriceWrap>
-                <FlexDiv>
-                    <Link   
-                        to={{ 
-                        pathname: '/ItemInfo',
-                        search:   queryString.stringify({ myProp: JSON.stringify(hero[index])}),
-                    }}>
-                        <Btn>View Details</Btn>
-                    </Link>
-                    <TextWrapper>
-                        <h2>Description</h2>
-                        <p>{hero[index].text}</p>
-                    </TextWrapper>
-                </FlexDiv>
-                    <CountdownContainer>
-                        {countdown ? `Deal ends in: ${countdown}` : 'Loading countdown...'}
-                    </CountdownContainer>
-                <HeroImg src={hero[index].image} alt="heroimg" />
+            <LeftBox>
+                <Title>AUDIOHIVE</Title>
+            
+                    <Name>BIG SPRING SALES</Name>
+                    <PriceWrap>
+                        <Price>50%</Price>
+                        <OffText>OFF</OffText>
+                    </PriceWrap>
+            </LeftBox>
+            <RightBox>
+                    {/* <ProductName>{slider[8].name}</ProductName> */}
+                    <HeroImg src={slider[index].image} alt="heroimg" />
+                <ImageWrap>
+                    <p>${slider[index].price}</p>
+                        <Link   
+                            to={{ 
+                                pathname: '/ItemInfo',
+                                search:   queryString.stringify({ myProp: JSON.stringify(slider[index])}),
+                            }}>
+                                <Btn>View Details</Btn>
+                            </Link>
+                </ImageWrap>
+                
+            </RightBox>
         </Wrapper>
     </HeroWrapper>
   )
 }
-const CountdownContainer = styled.div`
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 3rem;
-  align-items: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2A2A2A;
-`;
+
 const HeroWrapper = styled.div`
 margin-top:1.5rem;
 width: 100%;
@@ -97,30 +90,30 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction: column;
-    @media (max-width: 1200px){
-    }
-    @media (max-width: 700px){
-        height: 90vh;
-    }
-    @media (max-width: 550px){
-        height: 80vh;
-    }
-    @media (max-width: 400px){
-        height: 90vh;
-    }
+@media (max-width: 1200px){
+}
+@media (max-width: 700px){
+    height: 90vh;
+}
+@media (max-width: 550px){
+    height: 80vh;
+}
+@media (max-width: 400px){
+    height: 90vh;
+}
 `
 const Wrapper = styled.div`
+    overflow:hidden;
+    position: relative;
     width:100%;
     height:80vh;
-    background-image: url('https://i.ibb.co/xmq0Vrw/herowrap.png');
+    background-image: url('https://i.ibb.co/tpJbdZb/Untitled-design-15.png');
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
-    padding: 0rem 2rem;
-    position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
     @media (max-width: 1200px){
         width:100%;
         height:100%;
@@ -132,11 +125,47 @@ const Wrapper = styled.div`
         height: 100%;
     }
 `
+const OffText = styled.p`
+    margin-left: 1rem;
+    font-size: 6rem;
+    color: #FFDE59;
+    @media (max-width: 550px){
+        font-size: 2rem;
+    }
+`
+const ImageWrap = styled.div`
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    p{
+        border-radius: 1rem;
+        background-color:#DF3E3C ;
+        margin:0;
+        padding: 0;
+        padding: 0.5rem 0.5rem;
+        text-align: center;
+        color: white;
+        font-size:1.5rem;
+    }
+`
+const RightBox = styled.div`
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+    
+`
+const LeftBox = styled.div`
+    width: 50%;
+`
 const Title = styled.h1`
-    letter-spacing: 2px;
-    line-height: 50px;
+    margin: 0;
+    padding: 0;
+    margin-left: 8rem;
+    letter-spacing: 4px;
     font-size: 8rem;
-    color: #2A2A2A;
+    color: white;
     @media (max-width: 1200px){
         font-size: 12rem;
     }
@@ -150,65 +179,53 @@ const Title = styled.h1`
         font-size: 4rem;
     }
     `
-const CircleBackground = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFDE59;
-  border-radius: 0 2rem 2rem 0;
-  width: 125px;
-  height: 124px;
-  text-align: center;
-`;
+
     const Name = styled.p`
-    height: 100px;
-    margin-left: 1rem;
-    padding-top: 1rem;
-    padding-left:1rem;
-    padding-right: 1rem;
-    border: 4px solid #FFDE59;
-    border-radius: 2rem 0 0 2rem;
+    margin: 0;
+    padding: 0;
+    margin-left: 8rem;
     font-size: 4rem;
-    color: #2A2A2A;
-    letter-spacing: 2px;
+    color: white;
     @media (max-width: 550px){
         font-size: 2rem;
     }
 `
 const PriceWrap = styled.div`
+    margin: 0;
+    padding: 0;
+    margin-left: 8rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 `
-const Price = styled.p`
-    font-size: 3rem;
-    color:  #2A2A2A;
+const Price = styled.div`
+    margin: 0;
+    padding: 0;
+    max-width: 200px;
+    height: auto;
+    background-color:#FFDE59;
+    padding: 8px;
+    font-size: 6rem;
+    color:  #DF3E3C;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
 `
 const Btn = styled.button`
-    background-color:#FFDE59;
-    font-size: 1.5rem;
-    padding: 0rem 1rem;
-    border: none;
-    color:black;
-    width: 350px;
-    height: 50px;
-    border-radius: 1rem;
-    margin-left:2rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    width: 300px;
+    margin-top: 1rem;
+    padding: 0.7rem 0.7rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 1rem;
+    background-color:#DF3E3C ;
+    color: white;
     &:hover{
-        transform: scale(1.1);
-        filter: brightness(0.9); 
-        filter: saturate(0.8);
+        opacity:85%;
+        transition:0.3s ease;
     }
-    @media (max-width: 850px){
-        max-width: 300px;
-        padding: 0rem 0rem;
-    }
-    @media (max-width: 550px){
-        margin-left: 0;
-    }
-    
 `
 const FlexDiv = styled.div`
     display:flex;
@@ -250,21 +267,6 @@ const TextWrapper = styled.div`
 `
 const HeroImg = styled.img`
     background-blend-mode: lighten;
-    position: absolute;
     width: 600px;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    @media (max-width: 1200px){
-        width: 400px;
-    }
-    @media (max-width: 850px){
-        left: 80%;
-    }
-    @media (max-width: 700px){
-        width: 250px;
-        left: 70%;
-        top: 35%;
-    }
 `
 export default Hero;

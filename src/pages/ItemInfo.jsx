@@ -49,8 +49,9 @@ const ItemInfo = () => {
   )
 }
 const ItemInfoWrapper = styled.div`
+  font-family: 'Fredoka One', cursive;
+  font-weigh: 100;
   padding: 0 8rem;
-  font-family: 'Bebas Neue', cursive;
   @media (max-width: 1400px){
     padding: 0 4rem;
 
@@ -70,7 +71,6 @@ const Wrapper = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction: column;
-    font-family: 'Bebas Neue', cursive;
         @media (max-width: 1000px){
             height: 100%;
         }

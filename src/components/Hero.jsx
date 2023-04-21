@@ -20,35 +20,6 @@ const Hero = () => {
         }, 5000);
         return () => clearInterval(intervalId);
       }, [slider.length]);
-//--------------
-      const [countdown, setCountdown] = useState(null);
-
-      useEffect(() => {
-        const endTime = new Date('2023-04-30T23:59:59Z').getTime();
-        const interval = setInterval(() => {
-          const currentTime = new Date().getTime();
-          const remainingTime = endTime - currentTime;
-    
-          const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-          const hours = Math.floor(
-            (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          );
-          const minutes = Math.floor(
-            (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
-          );
-          const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-    
-          setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-    
-          if (remainingTime < 0) {
-            clearInterval(interval);
-            setCountdown('Deal has expired');
-          }
-        }, 1000);
-    
-        return () => clearInterval(interval);
-      }, []);
-//--------------
 
   return (
     <HeroWrapper>
@@ -90,19 +61,11 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction: column;
-@media (max-width: 1200px){
-}
-@media (max-width: 700px){
-    height: 90vh;
-}
-@media (max-width: 550px){
-    height: 80vh;
-}
-@media (max-width: 400px){
-    height: 90vh;
-}
 `
 const Wrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow:hidden;
     position: relative;
     width:100%;
@@ -111,12 +74,13 @@ const Wrapper = styled.div`
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media (max-width: 1500px){
+        flex-direciton: column;
+        height: 100%;
+      
+    }
     @media (max-width: 1200px){
-        width:100%;
-        height:100%;
+       display: block;
     }
     @media (max-width: 700px){
         padding: 0rem 1rem;
@@ -126,18 +90,27 @@ const Wrapper = styled.div`
     }
 `
 const OffText = styled.p`
-    margin-left: 1rem;
     font-size: 6rem;
     color: #FFDE59;
+    margin-left: 1rem;
+    @media (max-width: 1200px){
+        font-size: 3rem;
+        max-width: 150px;
+    }
     @media (max-width: 550px){
         font-size: 2rem;
+        margin-left: 0rem;
     }
 `
 const ImageWrap = styled.div`
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     p{
+        border: 1px solid black;
+        width: 290px;
         border-radius: 1rem;
         background-color:#DF3E3C ;
         margin:0;
@@ -149,15 +122,25 @@ const ImageWrap = styled.div`
     }
 `
 const RightBox = styled.div`
-    width: 50%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column
-    
+    width: 40%;
+    @media (max-width: 1200px){
+       width: 100%;
+       display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column
+    }
 `
 const LeftBox = styled.div`
-    width: 50%;
+    width: 60%;
+    @media (max-width: 1200px){
+        margin-top: 2.5rem;
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+     }
 `
 const Title = styled.h1`
     margin: 0;
@@ -166,17 +149,21 @@ const Title = styled.h1`
     letter-spacing: 4px;
     font-size: 8rem;
     color: white;
+    @media (max-width: 1750px){
+        margin-left: 2rem;
+    }
     @media (max-width: 1200px){
-        font-size: 12rem;
+        font-size: 6rem;
+        margin-left: 1rem;
     }
     @media (max-width: 850px){
-        font-size: 8rem;
+        font-size: 4rem;
     }
     @media (max-width: 550px){
-        font-size: 5rem;
+        font-size: 3rem;
     }
     @media (max-width: 400px){
-        font-size: 4rem;
+        font-size: 2rem;
     }
     `
 
@@ -186,9 +173,14 @@ const Title = styled.h1`
     margin-left: 8rem;
     font-size: 4rem;
     color: white;
-    @media (max-width: 550px){
-        font-size: 2rem;
+    @media (max-width: 1750px){
+        margin-left: 2rem;
     }
+    @media (max-width: 1200px){
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+   
 `
 const PriceWrap = styled.div`
     margin: 0;
@@ -197,6 +189,12 @@ const PriceWrap = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    @media (max-width: 1750px){
+        margin-left: 2rem;
+    }
+    @media (max-width: 1200px){
+        margin-left: 1rem;
+    }
 `
 const Price = styled.div`
     margin: 0;
@@ -211,19 +209,24 @@ const Price = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
+    @media (max-width: 1200px){
+        font-size: 3rem;
+        max-width: 150px;
+    }
 `
 const Btn = styled.button`
+    font-family: 'Fredoka One', cursive;
+    border: 1px solid black;
     cursor: pointer;
     width: 300px;
     margin-top: 1rem;
     padding: 0.7rem 0.7rem;
     font-size: 2rem;
-    border: none;
     border-radius: 1rem;
-    background-color:#DF3E3C ;
+    background-color:#DF3E3C;
     color: white;
     &:hover{
-        opacity:85%;
+        background:#990000;
         transition:0.3s ease;
     }
 `
@@ -268,5 +271,19 @@ const TextWrapper = styled.div`
 const HeroImg = styled.img`
     background-blend-mode: lighten;
     width: 600px;
+    @media (max-width: 1750px){
+    }
+    @media (max-width: 1200px){
+        width: 450px;
+        margin-left: 1rem;
+    }
+    @media (max-width: 850px){
+        width: 400px;
+
+    }
+    @media (max-width: 550px){
+    }
+    @media (max-width: 400px){
+    }
 `
 export default Hero;

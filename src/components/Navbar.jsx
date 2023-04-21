@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import Audio from '../assets/Audio.png'
+import Audio from '../assets/LOGO.png'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import {showSection , hideSection, removeItemFromCart , clearCart , handleIncrement, handleDecrement} from '../actions'
 import { AiOutlineShopping, AiOutlineCloseCircle } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -19,6 +20,11 @@ const Navbar = () => {
             <LogoWrap>
                 <img src={Audio} alt="logo" />
             </LogoWrap>
+            <NavUl>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/Products'>Products</Link></li>
+                <li>Contact Us</li>
+            </NavUl>
             <LogoDiv onClick={() => dispatch(showSection())}>
                 <ShopLogo />
                 <Circle>{cartItems.length}</Circle>
@@ -115,6 +121,29 @@ const SectionCheckOut = styled.div`
     }
     
 `
+const NavUl = styled.ul`
+    padding: 1rem;
+    display:flex;
+    flex-direction: row;
+    list-style-type: none;
+    font-size: 1.5rem;
+    background-color: #DF3E3C;
+    color: white;
+    border-radius: 1rem;
+    li{
+        a{
+        list-style-type: none;
+        color: white;
+        text-decoration: none;
+       }
+       margin:0 2rem;
+       cursor: pointer;
+       &:hover{
+        color:#d2d2d2;
+        transition: 0.3s ease;
+       }
+    }
+`
 const ShopLogo = styled(AiOutlineShopping)`
     font-size: 3rem;
     padding-right: 2px;
@@ -144,6 +173,7 @@ const LogoWrap = styled.div`
     }
     @media (max-width: 400px){
         height: 200px;
+        width: 200px;
     }
 `
 const NavText = styled.div`
@@ -236,6 +266,7 @@ const Card = styled.div`
     
 `
 const Remove = styled.button`
+    font-family: 'Fredoka One', cursive;
     border-radius: 1rem;
     cursor: pointer;
     padding: 5px 5px;
@@ -251,6 +282,7 @@ const Remove = styled.button`
     }
 `
 const OrderButton = styled.button`
+    font-family: 'Fredoka One', cursive;
     border-radius: 1rem;
     width: 250px;
     height: 50px;
@@ -270,6 +302,7 @@ const OrderButton = styled.button`
 }
 `
 const ClearButton = styled.button`
+    font-family: 'Fredoka One', cursive;
     border-radius: 1rem;
     cursor:pointer;
     font-size: 1rem;

@@ -32,7 +32,7 @@ const Speaker = () => {
     return (
         <div>
         <Wrapper>
-          <h2>Best selling speakers</h2>
+          <h2>POPULAR SPEAKERS</h2>
           <Splide options={{
            perPage,
            arrows: false,
@@ -64,8 +64,15 @@ const Speaker = () => {
 const Wrapper = styled.div`
 h2{
   text-align: center;
-  font-size: 5rem;
-  margin-bottom: 1rem;
+  font-size: 4rem;
+  background-color:#DF3E3C;
+  border-radius:1rem;
+  color: white;
+  padding: 1rem 0;
+  width: 100%;
+  @media (max-width: 800px){
+    font-size: 2.5rem;
+  }
 }
 `
 const Card = styled.div`

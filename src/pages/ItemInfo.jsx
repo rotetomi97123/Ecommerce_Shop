@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { BiArrowBack } from 'react-icons/bi'
 import { Link } from 'react-router-dom';
 import { AiOutlineDown } from 'react-icons/ai'
-import Navbar from '../components/navbar';
+import Navbar from '../components/Navbar';
 import { useDispatch } from 'react-redux'
 import {addItemToCart} from '../actions'
 
@@ -65,6 +65,7 @@ const ItemInfoWrapper = styled.div`
   }
 `
 const Wrapper = styled.div`
+    font-weight: 100;
     width: 100%;
     height: 100vh;
     display:flex;
@@ -122,6 +123,7 @@ const RightWrap = styled.div`
     }
   }
   p{
+    font-weight: 200;
     max-width: 500px;
     font-size: 1.2rem;
     @media (max-width: 1000px){
@@ -151,10 +153,11 @@ const RightWrap = styled.div`
   }
 `
 const Order = styled.button`
+    font-family: 'Fredoka One', cursive;
     margin: 1rem 0;
     width: 250px;
     height: 50px;
-    background-color: #FF3131;
+    background-color: #DF3E3C;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -164,7 +167,7 @@ const Order = styled.button`
     cursor: pointer;
     transition: background-color 0.3s ease;
     &:hover{
-        opacity: 80%;
+        background:#990000;
         transition: 0.3s ease;
     }
     @media (max-width: 400px){
@@ -178,16 +181,14 @@ const Back = styled.button`
     top: 2rem;
     cursor:pointer;
     font-size: 1.5rem;
-    background:none;
+    background-color: #DF3E3C;
     border: none;
-    border: 1px solid #DC143C ;
     padding: 5px 25px;
     display:flex;
     justify-content: center;
     align-items: center;
     border-radius: 2px;
     color: white;
-    background: #DC143C ;
     &:hover{
         background:#990000;
         transition: 0.3s ease;

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@splidejs/react-splide": "^0.7.12",
+    "google-map-react": "^2.2.0",
+    "leaflet": "^1.9.3",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

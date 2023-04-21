@@ -1,11 +1,12 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Hero from '../components/hero'
 import EarBuds from '../components/EarBuds'
 import Discount from '../components/discount'
 import Speaker from '../components/Speaker'
+import Contact from '../components/Contact'
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
         <EarBuds />
         <Discount />
         <Speaker />
+        <Contact />
     </HomeWrapper>
   )
 }

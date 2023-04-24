@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
-import {hero,slider} from './data'
+import {slider} from './data'
 import { useDispatch } from 'react-redux'
 import {addItemToCart} from '../actions'
 import queryString from 'query-string';
 import { Link } from 'react-router-dom';
-import herowrap from '../assets/herowrap.png'
 
 
 const Hero = () => {
@@ -26,8 +25,7 @@ const Hero = () => {
         <Wrapper>
             <LeftBox>
                 <Title>AUDIOHIVE</Title>
-            
-                    <Name>BIG SPRING SALES</Name>
+                <Name>BIG SPRING SALES</Name>
                     <PriceWrap>
                         <Price>50%</Price>
                         <OffText>OFF</OffText>
@@ -110,7 +108,7 @@ const ImageWrap = styled.div`
     align-items: center;
     p{
         border: 1px solid black;
-        width: 290px;
+        min-width: 280px;
         border-radius: 1rem;
         background-color:#DF3E3C ;
         margin:0;

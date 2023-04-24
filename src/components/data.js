@@ -5,33 +5,14 @@ export const hero = [
         name: "Razer Kraken Pro V2",
         text: "The Razer Kraken Pro V2 is a popular gaming headset from Razer. It features 50mm audio drivers for clear and powerful sound, a retractable microphone for clear communication.",
         image: "https://i.ibb.co/ZhDgYkJ/heroIMG.png",
-        color: "#00FF00",
         price: 79.99,
-        quantity: 1,
-        specification: `Dimensions:
-
-        Earbuds: 30.9 x 21.8 x 24.0 mm
-        Charging case: 60.6 x 45.2 x 21.7 mm
-        Weight:
-        
-        Earbuds: 5.4 g each
-        Charging case with earbuds: 45.6 g
-        Battery life:
-        
-        Up to 4.5 hours with ANC on
-        Up to 5 hours with ANC off (earbuds)
-        Up to 24 hours with charging case
-        Charging time:
-        
-        5 minutes for up to 1 hour of battery life
-        Bluetooth version: 5.0`
+        quantity: 1
     },
     {
         id: 1,
         name: "HyperX Cloud II",
         text: "These wired headphones have a comfortable and durable design, with memory foam ear cushions and a solid aluminum frame. They also have a detachable noise-cancelling microphone.",
         image: "https://i.ibb.co/0t0Pdv1/hypex2.png",
-        color: "red",
         price: 99.99,
         quantity: 1,
         specification: `Brand: HyperX 
@@ -44,13 +25,7 @@ export const hero = [
         Sound pressure level: 98±3dB
         Total harmonic distortion: < 2%
         Driver diameter: 53mm
-        Microphone:
-        Type:
-        Detachable, noise-cancelling condenser
-        Polar pattern: Cardioid (Unidirectional)
-        Frequency response: 50Hz-18,000Hz
-        Compatibility:
-        PC, Mac, PS4, Xbox One, Nintendo Switch, and mobile devices.`
+       `
 
     },
     {
@@ -58,7 +33,6 @@ export const hero = [
         name: "Logitech G533 Wireless",
         text: "The Logitech G533 Wireless Gaming Headset is a high-performance gaming headset with advanced audio, a comfortable and lightweight design, and reliable wireless connectivity.",
         image: "https://i.ibb.co/FD7RDKj/3.png",
-        color: "#4FC3F7",
         price: 149.99,
         quantity: 1,
         specification: `
@@ -88,8 +62,7 @@ export const hero = [
         id: 3,
         name: "SteelSeries Arctis 5",
         text: "The SteelSeries Arctis 5 is a gaming headset with DTS Headphone:X v2.0 surround sound, a noise-canceling microphone, and RGB lighting. It has a lightweight suspension headband.",
-        image: "https://i.ibb.co/zSMXt7J/6.png",
-        color: "#FFA500",
+        image: "https://img.gigatron.rs/img/products/large/image59c122e12dd72.png",
         price: 99.99,
         quantity: 1,
         specification: `Brand: SteelSeries
@@ -241,7 +214,7 @@ export const speakers = [
         image: "https://www.dimprice.co.uk/image/cache/catalog/Bose/bose-soundlink-mini-ii-special-edition-triple-black-1-1200x1200.png",
         price: 179.99,
         quantity: 1,
-        specification: ``
+        specification: `Compact Bluetooth speaker with up to 10 hours of play time, built-in speakerphone, and voice prompts for easy setup. Features a rechargeable lithium-ion battery and wireless range of up to 30 feet.`
     },
     {
         id: 1,
@@ -250,7 +223,7 @@ export const speakers = [
         image: "https://i5.walmartimages.com/asr/35d25172-4c9e-4427-bfaf-2e684e70d5a4_1.1f3b9d6706634556742ca65c979556b3.png",
         price: 179.95,
         quantity: 1,
-        specification: ``
+        specification: ` Portable Bluetooth speaker with up to 20 hours of play time, built-in power bank for charging devices, and IPX7 waterproof design. Features a rechargeable battery and wireless range of up to 30 feet.`
     },
     {
         id: 2,
@@ -259,16 +232,16 @@ export const speakers = [
         image: "https://norlux.com/en/wp-content/uploads/sites/3/2022/03/Sonos-One-SL-black-front-top.png",
         price: 179.00,
         quantity: 1,
-        specification: ``
+        specification: `Smart wireless speaker with built-in Amazon Alexa and Google Assistant support, and ability to pair with other Sonos speakers for multi-room audio. Features a compact design and wireless connectivity over Wi-Fi.`
     },
     {
         id: 3,
         name: "Ultimate Ears BOOM 3",
         text: "",
-        image: "https://www.ultimateears.com/content/dam/ue/products/wireless-speakers/boom-3/night-black/ue-boom3-night-black-front.png",
+        image: "https://cdn.shopify.com/s/files/1/1540/3055/products/black-custom-boom-3-portable-bluetooth-speaker-technology-6792176140376_1445x.png?v=1566942947",
         price: 149.99,
         quantity: 1,
-        specification: ``
+        specification: `Portable Bluetooth speaker with up to 15 hours of play time, IP67 waterproof and dustproof rating, and ability to connect with up to 150 other BOOM or MEGABOOM speakers. Features a rechargeable battery and wireless range of up to 150 feet.`
     },  {
         id: 4,
         name: "Marshall Acton II",
@@ -276,7 +249,7 @@ export const speakers = [
         image: "https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dw898eb557/images/marshall/speakers/acton-ii-bt/black/large/pos-marshall-acton-ii-bt-black-01.png",
         price: 199.99,
         quantity: 1,
-        specification: ``
+        specification: ` Compact Bluetooth speaker with vintage styling and up to 30 feet of wireless range. Features a custom-tuned Class D amplifier and two 10W tweeters for powerful sound, as well as a variety of analog knobs for adjusting the bass, treble, and volume.`
     },  {
         id: 5,
         name: "Harman Kardon Onyx Studio 6",
@@ -292,15 +265,15 @@ export const speakers = [
         image: "https://assets.bose.com/content/dam/cloudassets/Bose_DAM/Web/consumer_electronics/global/products/speakers/bose_home_speaker_300/product_silo_images/bose_home_speaker_300_black_EC_hero.PNG/_jcr_content/renditions/cq5dam.web.1280.1280.png",
         price: 199.00,
         quantity: 1,
-        specification: ``
+        specification: `Wireless Bluetooth speaker with up to 8 hours of play time, built-in microphone for hands-free calling, and IPX7 waterproof rating. Features a rechargeable battery and wireless range of up to 33 feet.`
     },  {
         id: 7,
         name: "Sony SRS-XB23",
         text: "",
-        image: "https://cdn.shopify.com/s/files/1/0663/2947/7353/products/SonySpeaker1.webp?v=1678495420",
+        image: "https://sonycenter.kz/image/catalog/products/audio/xb23/01g.png",
         price: 99.99,
         quantity: 1,
-        specification: ``
+        specification: `Portable Bluetooth speaker with up to 12 hours of play time, water-resistant design, and built-in microphone for hands-free calling. Features a rechargeable battery and wireless range of up to 33 feet.`
     },  {
         id: 8,
         name: "Anker Soundcore Flare 2",
@@ -308,7 +281,7 @@ export const speakers = [
         image: "https://cdn.salla.sa/BvdpA/fbQDT8IUz1tiCqEj2xVEXuCevTZRPQ1UQ8H59ffW.png",
         price: 69.99,
         quantity: 1,
-        specification: ``
+        specification: `Portable Bluetooth speaker with up to 12 hours of play time, IPX7 waterproof rating, and ability to connect with up to 100 other Soundcore speakers. Features a rechargeable battery and wireless range of up to 66 feet. Also includes customizable LED lights for added visual effect.`
     },
 ]
 export default hero;

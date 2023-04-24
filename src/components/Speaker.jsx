@@ -1,15 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useRef } from 'react'
 import styled from "styled-components"
 import { Splide, SplideSlide} from '@splidejs/react-splide'
 import '@splidejs/react-splide/css';
 import { speakers } from './data'
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 
 const Speaker = () => {
 
+  const splideRef = useRef(null);
 
+
+  const handleArrowClick = (direction) => {
+    if (splideRef.current) {
+      if (direction === "left") {
+        splideRef.current.go("-1");
+      } else if (direction === "right") {
+        splideRef.current.go("+1");
+      }
+    }
+  };
 // Splide
   const [perPage, setPerPage] = useState(3);
 
@@ -33,7 +45,7 @@ const Speaker = () => {
         <div>
         <Wrapper>
           <h2>POPULAR SPEAKERS</h2>
-          <Splide options={{
+          <Splide  ref={splideRef} options={{
            perPage,
            arrows: false,
            pagination: false,
@@ -56,12 +68,16 @@ const Speaker = () => {
                )
               })};
            </Splide>
+           <LeftArrow onClick={() => handleArrowClick("left")}/>
+           <RightArrow onClick={() => handleArrowClick("right")}/>
          </Wrapper>
    </div>
   )
 }
 
 const Wrapper = styled.div`
+position: relative;
+
 h2{
   text-align: center;
   font-size: 4rem;
@@ -101,6 +117,30 @@ const Card = styled.div`
     opacity: 90%;
   }
 `;
-
+const LeftArrow = styled(FaChevronLeft)`
+  position: absolute;
+  font-size: 3rem;
+  cursor: pointer;
+  left: 0;
+  width: 50px;
+  top: 65%;
+  transform: translateY(-65%);
+  &:hover{
+    color:#DF3E3C;
+    transition: 0.3s ease;
+  }
+`
+const RightArrow = styled(FaChevronRight)`
+  cursor: pointer;
+  position: absolute;
+  font-size: 3rem;
+  right: 0;
+  top: 65%;
+  transform: translateY(-65%);
+  &:hover{
+    color:#DF3E3C;
+    transition: 0.3s ease;
+  }
+`
 
 export default Speaker;

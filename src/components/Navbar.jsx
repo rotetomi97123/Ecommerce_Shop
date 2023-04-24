@@ -1,30 +1,55 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Audio from '../assets/LOGO.png'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import {showSection , hideSection, removeItemFromCart , clearCart , handleIncrement, handleDecrement} from '../actions'
 import { AiOutlineShopping, AiOutlineCloseCircle } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { FiMenu } from 'react-icons/fi';
+
 
 const Navbar = () => {
 
+
+    const [toggleNav, setToggleNav] = useState(false)
+    const [toggleMobileNav, setToggleMobileNav] = useState(false)
     const dispatch = useDispatch();
     const isShow = useSelector(state => state.showSection)
     const cartItems = useSelector(state => state.cart.cartItems)
 
     const totalPrice = cartItems.reduce((acc, item) => acc + ((item.quantity)*(item.price)), 0).toFixed(2);
-
-
+   
+    useEffect(() => {
+        const handleResize = () => {
+          if (window.innerWidth < 970) {
+            setToggleNav(true);
+          }
+           else {
+            setToggleNav(false);
+            setToggleMobileNav(false);
+          }
+        };
+        // Call handleResize initially to set initial state
+        handleResize();
+    
+        window.addEventListener("resize", handleResize);
+    
+        // Cleanup function to remove event listener on unmount
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
   return (
     <NavText>
+            {toggleNav &&<Menu onClick={() => {setToggleMobileNav(!toggleMobileNav);}} size={40} />}
             <LogoWrap>
                 <img src={Audio} alt="logo" />
             </LogoWrap>
-            <NavUl>
+            {toggleNav ===false ?<NavUl>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/Products'>Products</Link></li>
                 <li>Contact Us</li>
-            </NavUl>
+            </NavUl>:''}
             <LogoDiv onClick={() => dispatch(showSection())}>
                 <ShopLogo />
                 <Circle>{cartItems.length}</Circle>
@@ -68,10 +93,54 @@ const Navbar = () => {
                     <Exit onClick={() => dispatch(hideSection())}><AiOutlineCloseCircle /></Exit>
                 </Section>
                             {/* CART SECTION */}
+                <StyledSection toggleMobileNav={toggleMobileNav}>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/Products'>Products</Link></li>
+                    <li>Contact Us</li>
+                </StyledSection>
         </NavText>
 
-  )
+)
 }
+const StyledSection = styled.section`
+  z-index: 20;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: absolute;
+  top: 6rem;
+  left: ${props => (props.toggleMobileNav ? '-40px' : '-350px')};
+  width: 150px;
+  transition: 0.3s ease;
+  height:250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  background-color: #DF3E3C;
+  list-style-type: none;
+  text-decoration: none;
+  li{
+      cursor: pointer;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: white;
+      &:hover{
+        color:#d3d3d3;
+        transition: 0.3s ease;
+       }
+
+      a{
+        color: white;
+        list-style-type: none;
+        text-decoration: none;
+        &:hover{
+            color:#d3d3d3;
+            transition: 0.3s ease;
+           }
+   }
+  
+`;
 const Circle = styled.div`
     width: 25px;
     height: 25px;
@@ -107,6 +176,10 @@ const SectionLast = styled.div`
     font-size: 1.2rem;
     text-align: center;
 `
+const Menu = styled(FiMenu)`
+    cursor:pointer;
+    
+`
 const SectionCheckOut = styled.div`
     width: 100%;
     display: flex;
@@ -135,11 +208,15 @@ const NavUl = styled.ul`
         list-style-type: none;
         color: white;
         text-decoration: none;
+        &:hover{
+            color:#d3d3d3;
+            transition: 0.3s ease;
+           }
        }
        margin:0 2rem;
        cursor: pointer;
        &:hover{
-        color:#d2d2d2;
+        color:#d3d3d3;
         transition: 0.3s ease;
        }
     }
@@ -177,6 +254,8 @@ const LogoWrap = styled.div`
     }
 `
 const NavText = styled.div`
+    position: relative;
+
     width: 100%;
     height:13vh;
     display:flex;

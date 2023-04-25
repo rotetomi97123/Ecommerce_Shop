@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import styled from 'styled-components'
 import { hero,slider,speakers } from '../components/data'
@@ -13,15 +13,27 @@ const Products = () => {
   const dispatch = useDispatch();
   const ProductItems = [...hero,...slider,...speakers];
 
+  const [selectedOption, setSelectedOption] = useState('');
+  const filteredItems = selectedOption !== '' ? ProductItems.filter(item => item.type === selectedOption) : ProductItems;
+
+  const handleOptionChange = e => {
+    setSelectedOption(e.target.value);
+  };
   return (
     <ProductWrapper>
       <Navbar />
       <TitleWrap>
         <h1>Product List</h1>
       </TitleWrap>
+      <Label htmlFor="filter-select">Filter by:</Label>
+      <Select id="filter-select" value={selectedOption} onChange={handleOptionChange}>
+        <option value="">All</option>
+        <option value="headphone">Headphones</option>
+        <option value="earbuds">Earbuds</option>
+        <option value="speaker">Speaker</option>
+      </Select>
       <Wrapper>
-    
-        {ProductItems.map(item => <Card>
+        {filteredItems.map(item => <Card>
         <Link   
         to={{ 
           pathname: '/ItemInfo',
@@ -70,6 +82,18 @@ const OrderCircle = styled.div`
     transition: 0.1s ease;
   }
   `
+const Select = styled.select`
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  background-color:#DF3E3C;
+  color: white;
+  border-radius: 0.5rem;
+  }
+  `
+const Label = styled.label`
+  font-size: 1.5rem;
+`
   const Order = styled(AiOutlineShopping)`
     cursor:pointer;
     &:hover{
@@ -92,7 +116,8 @@ const TitleWrap = styled.div`
   justify-content:center;
   align-items: center;
   background-color:#DF3E3C;
-  margin-top: 5rem;
+  margin-top: 5.5rem;
+  margin-bottom: 1rem;
   border-radius: 1rem;
   h1{
     text-align:center;
@@ -101,12 +126,11 @@ const TitleWrap = styled.div`
   }
 `
 const Wrapper = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   p{
     font-size: 1.4rem;
@@ -123,6 +147,9 @@ const Card = styled.div`
   margin-right: 2rem;
   margin-bottom: 2rem;
   overflow:hidden;
+  @media (max-width: 879px){
+    margin-right: 0rem;
+  }
 `
 const ImageWrap = styled.div`
   cursor: pointer;

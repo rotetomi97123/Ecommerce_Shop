@@ -86,7 +86,7 @@ const Navbar = () => {
 
                             <SectionCheckOut>
                             <p>Total Price: ${totalPrice}</p>
-                            <OrderButton>Check Out</OrderButton>
+                            <OrderButton><Link to='/Checkout'>Check Out</Link></OrderButton>
                             </SectionCheckOut>
                     </CartWrapper>
                     
@@ -374,6 +374,11 @@ const OrderButton = styled.button`
     font-size:1.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    a{
+         color: white;
+         text-decoration:none;
+         list-style-type:none;
+    }
     &:hover{
        opacity: 85%;
        transition: 0.3s ease;

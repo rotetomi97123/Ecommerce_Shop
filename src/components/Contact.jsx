@@ -32,6 +32,9 @@ const Wrapper = styled.div`
     border-radius: 2rem;
     display: flex;
     font-family: 'Fredoka One', cursive;
+    @media (max-width: 950px){
+        flex-direction: column;
+    }
 `
 const LeftSide = styled.div`
     width: 55%;
@@ -49,7 +52,19 @@ const LeftSide = styled.div`
         color: white;
         font-size: 4rem;
     }
-
+    @media (max-width: 950px){
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom-left-radius: 0rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+    @media (max-width: 500px){
+        h1{
+            font-size: 2.5rem;
+        }
+    }
+    
 `
 const RightSide = styled.div`
     height: 100%;
@@ -67,6 +82,17 @@ const RightSide = styled.div`
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
     }
+    @media (max-width: 950px){
+        width: 100%;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        img{
+            border-top-right-radius: 0rem;
+            border-bottom-right-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+
+        }
+    }
 `
 const UnderLine = styled.div`
     border-top: 3px solid white;
@@ -82,6 +108,9 @@ const Input = styled.input`
     border-radius: 0.5rem;
     padding: 0 1rem;
     margin: 0.5rem 0;
+    @media (max-width: 500px){
+        width: 200px;
+    }
 `
 const Textarea = styled.textarea`
     font-family: 'Fredoka One', cursive;
@@ -93,6 +122,10 @@ const Textarea = styled.textarea`
     border-radius: 0.5rem;
     padding: 0 1rem;
     margin: 0.5rem 0;
+    padding-top: 1rem;
+    @media (max-width: 500px){
+        width: 200px;
+    }
 `
 const InputWrapper = styled.div`
     margin-top: 2rem;
@@ -111,6 +144,9 @@ const Btn = styled.button`
     &:hover{
         opacity: 85%;
         transition: 0.3s ease;
+    }
+    @media (max-width: 500px){
+        width: 200px;
     }
 `
 export default Contact

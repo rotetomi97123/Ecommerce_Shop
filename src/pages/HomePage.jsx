@@ -7,6 +7,7 @@ import EarBuds from '../components/EarBuds'
 import Discount from '../components/discount'
 import Speaker from '../components/Speaker'
 import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
         <Discount />
         <Speaker />
         <Contact />
+        <Footer />
     </HomeWrapper>
   )
 }

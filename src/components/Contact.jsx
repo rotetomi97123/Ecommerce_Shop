@@ -4,7 +4,7 @@ import image from '../assets/contact.jpg'
 
 const Contact = () => {
   return (
-    <Wrapper>
+    <Wrapper id='contact'>
         <LeftSide>
             <div>
                 <h1>Contact Us!</h1>
@@ -25,6 +25,7 @@ const Contact = () => {
 }
 
 const Wrapper = styled.div`
+    scroll-behavior: smooth;
     width:100%;
     height: 100vh;
     margin-top: 3rem;

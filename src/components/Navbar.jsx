@@ -48,7 +48,7 @@ const Navbar = () => {
             {toggleNav ===false ?<NavUl>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/Products'>Products</Link></li>
-                <li>Contact Us</li>
+                <li><a href="#contact">Contact Us</a></li>
             </NavUl>:''}
             <LogoDiv onClick={() => dispatch(showSection())}>
                 <ShopLogo />
@@ -255,7 +255,7 @@ const LogoWrap = styled.div`
 `
 const NavText = styled.div`
     position: relative;
-
+    scroll-behavior: smooth;
     width: 100%;
     height:13vh;
     display:flex;

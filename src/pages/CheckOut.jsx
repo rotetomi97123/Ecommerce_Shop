@@ -86,8 +86,7 @@ const CheckWrapper = styled.div`
 
     }
     @media (max-width: 700px){
-    padding: 0 2rem;
-
+    padding: 0 0rem;
     }
 `
 const Box2 = styled.div`
@@ -133,7 +132,7 @@ const Box2 = styled.div`
         padding: 0.5rem 0.5rem;
     }
     @media (max-width: 900px){
-        width: 90%;
+        width: 95%;
         height: 45%;
         border-top-right-radius: 0rem;
         border-bottom-left-radius: 1rem;
@@ -146,6 +145,10 @@ const Box2 = styled.div`
         h4{
             margin-left:0rem;
         }
+    }
+    @media (max-width: 400px){
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
     `
 const Wrapper = styled.div`
@@ -193,12 +196,16 @@ const Box = styled.div`
         }
     }
     @media (max-width: 900px){
-        width: 90%;
+        width: 95%;
         height: 45%;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         border-bottom-left-radius: 0rem;
         padding-bottom: 1rem;
+    }
+    @media (max-width: 400px){
+        margin-top:5rem;
+        padding-top: 5rem;
     }
 `
 const Information = styled.div`

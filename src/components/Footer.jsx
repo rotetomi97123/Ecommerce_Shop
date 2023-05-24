@@ -114,6 +114,10 @@ const BoxLogo = styled.div`
   @media (max-width: 950px){
     width: 100%;
     height: 33%;
+    margin-top:2rem;
+    img{
+      width: 300px;
+    }
   }
 `
 const Box = styled.div`

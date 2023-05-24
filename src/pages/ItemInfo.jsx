@@ -75,6 +75,9 @@ const Wrapper = styled.div`
         @media (max-width: 1000px){
             height: 100%;
         }
+        @media (max-width: 700px){
+          margin-top:2rem;
+        }
 `
 const Box = styled.div`
     position: relative;

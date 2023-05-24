@@ -65,7 +65,7 @@ export const hero = [
         id: 3,
         name: "SteelSeries Arctis 5",
         text: "The SteelSeries Arctis 5 is a gaming headset with DTS Headphone:X v2.0 surround sound, a noise-canceling microphone, and RGB lighting. It has a lightweight suspension headband.",
-        image: "https://img.gigatron.rs/img/products/large/image59c122e12dd72.png",
+        image: "https://images.squarespace-cdn.com/content/v1/5985346fdb29d60e9d206ab3/1538508270537-5X7221EFD67764SPC6QV/purchase-gallery-arctis-5-2019-black-hero.png__1850x800_q100_crop-scale_optimize_subsampling-2.png?format=1500w",
         price: 99.99,
         quantity: 1,
         type: 'headphone',
@@ -305,6 +305,15 @@ export const speakers = [
         type:'speaker',
         specification: `Portable Bluetooth speaker with up to 12 hours of play time, IPX7 waterproof rating, and ability to connect with up to 100 other Soundcore speakers. Features a rechargeable battery and wireless range of up to 66 feet. Also includes customizable LED lights for added visual effect.`
     },
+]
+export const comboDeal = [
+    {
+        id: 1,
+        name: 'comboDeal',
+        image: 'https://i.ibb.co/fqwpw6H/discount3.png',
+        price: 289.99,
+        quantity: 1,
+    }
 ]
 export const countries = [
     {

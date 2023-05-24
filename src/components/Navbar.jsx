@@ -308,9 +308,8 @@ const Section = styled.div`
     letter-spacing: 2px;
     margin-bottom: 16px;
   }
-  @media (max-width: 550px){
-    right: ${({ isVisible }) => (isVisible ? "0" : "-500px")};
-    width: 100%;
+  @media (max-width: 650px){
+    width:100%;
   }
 `;
 const Quantity = styled.div`

@@ -86,7 +86,7 @@ const CheckWrapper = styled.div`
 
     }
     @media (max-width: 700px){
-    padding: 0 0rem;
+    padding: 0 2rem;
     }
 `
 const Box2 = styled.div`
